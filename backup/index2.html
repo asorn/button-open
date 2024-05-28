@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gradient {
+            --radius: 20px;
+            --border: 10px;
+            box-sizing: border-box;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(0deg, red, blue);
+            border-radius: var(--radius);
+        }
+    </style>
+</head>
+<body style="background-color: aquamarine;">
+    <div class="gradient"></div>
+    <script>
+        var gradient = document.querySelector('.gradient');
+        var radius = getComputedStyle(gradient).getPropertyValue('--radius');
+        var border = getComputedStyle(gradient).getPropertyValue('--border');
+        var svg = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' rx='`+ radius +`' fill='none' stroke='black' stroke-width='`+ border +`'/></svg>`
+        gradient.style.mask = "url(\""+ svg +"\")";
+    </script>
+</body>
+</html>

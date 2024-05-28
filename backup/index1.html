@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gradient {
+            --size: 100px;
+            position: relative;
+            background: linear-gradient(to right, red, blue);
+            width: var(--size);
+            height: var(--size);
+        }
+        .gradient::before {
+            --border: 4px;
+            content: '';
+            position: absolute;
+            top: calc(var(--border) / 2);
+            left: calc(var(--border) / 2);
+            width: calc(100% - var(--border));
+            height: calc(100% - var(--border));
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient"></div>
+</body>
+</html>
